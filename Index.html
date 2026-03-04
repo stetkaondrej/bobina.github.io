@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Narozeninové Překvapení — Tropea 2026</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='80' x='50%25' text-anchor='middle'>✦</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --terracotta: #C2703E;
+  --terracotta-dark: #A0552A;
+  --cream: #FDF5E6;
+  --cream-warm: #F5E6CC;
+  --olive: #6B7F3B;
+  --olive-dark: #4A5928;
+  --gold: #C9A84C;
+  --gold-light: #E8D48B;
+  --wine: #722F37;
+  --wine-light: #8B3A44;
+  --charcoal: #3A3330;
+  --parchment: #F0E4D0;
+  --sage: #A8B78E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  overflow-x: hidden;
+}
+
+/* === DECORATIVE BACKGROUND PATTERN === */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(194,112,62,0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(107,127,59,0.03) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(114,47,55,0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* === HERO SECTION === */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(194,112,62,0.08) 0%, rgba(253,245,230,0) 40%),
+    linear-gradient(0deg, rgba(114,47,55,0.06) 0%, rgba(253,245,230,0) 30%),
+    var(--cream);
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--olive), var(--wine), var(--terracotta));
+}
+
+/* Decorative corner flourishes */
+.corner-flourish {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  opacity: 0.15;
+}
+.corner-flourish.tl { top: 30px; left: 30px; }
+.corner-flourish.tr { top: 30px; right: 30px; transform: scaleX(-1); }
+.corner-flourish.bl { bottom: 30px; left: 30px; transform: scaleY(-1); }
+.corner-flourish.br { bottom: 30px; right: 30px; transform: scale(-1); }
+
+.corner-flourish svg {
+  width: 100%; height: 100%;
+  fill: var(--terracotta-dark);
+}
+
+.hero-ornament {
+  font-size: 2rem;
+  color: var(--gold);
+  letter-spacing: 0.5em;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.3s forwards;
+}
+
+.hero-subtitle-top {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.5s forwards;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.7s forwards;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.hero-location {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--olive);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.9s forwards;
+}
+
+.hero-date {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.2em;
+  color: var(--wine);
+  background: linear-gradient(135deg, rgba(114,47,55,0.08), rgba(194,112,62,0.08));
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 0.8rem 2.5rem;
+  display: inline-block;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 1.1s forwards;
+}
+
+.hero-affirmation {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--terracotta);
+  max-width: 500px;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeUp 1s ease 1.3s forwards;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: fadeUp 1s ease 1.8s forwards;
+}
+
+.scroll-hint span {
+  display: block;
+  width: 2px;
+  height: 40px;
+  background: var(--gold);
+  margin: 0 auto;
+  animation: scrollPulse 2s ease infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* === SECTION STYLES === */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+.section-divider {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--gold);
+  font-size: 1.5rem;
+  letter-spacing: 1em;
+  opacity: 0.5;
+}
+
+.content-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.section-label {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  text-align: center;
+  color: var(--charcoal);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--wine);
+}
+
+/* === STORY / INTRO === */
+.story-section {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 50%, var(--cream) 100%);
+}
+
+.story-text {
+  font-size: 1.25rem;
+  line-height: 1.85;
+  text-align: center;
+  color: var(--charcoal);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.story-text .highlight {
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.names-list {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 2.5rem 0;
+}
+
+.name-badge {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--wine);
+  background: rgba(114,47,55,0.06);
+  border: 1px solid rgba(114,47,55,0.15);
+  padding: 0.5rem 1.5rem;
+  border-radius: 0;
+}
+
+/* === TRAVEL INFO CARDS === */
+.travel-section {
+  background:
+    linear-gradient(135deg, rgba(58,51,48,0.97) 0%, rgba(74,64,58,0.97) 100%);
+  color: var(--cream);
+  padding: 5rem 2rem;
+}
+
+.travel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2.5rem auto 0;
+}
+
+.travel-card {
+  background: rgba(253,245,230,0.06);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 2rem;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.travel-card:hover {
+  border-color: rgba(201,168,76,0.5);
+}
+
+.travel-card-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.travel-card-label {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.travel-card-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.3;
+}
+
+.travel-card-detail {
+  font-size: 0.95rem;
+  color: rgba(253,245,230,0.6);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* === PALAZZO SECTION === */
+.palazzo-section {
+  background: var(--cream);
+}
+
+.palazzo-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.palazzo-feature {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(194,112,62,0.04), rgba(201,168,76,0.04));
+  border: 1px solid rgba(194,112,62,0.1);
+}
+
+.palazzo-feature-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.palazzo-feature-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+  color: var(--charcoal);
+}
+
+.palazzo-feature-text {
+  font-size: 0.95rem;
+  color: rgba(58,51,48,0.65);
+  line-height: 1.5;
+}
+
+.palazzo-quote {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--terracotta);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  background: rgba(194,112,62,0.04);
+  border-left: 3px solid var(--gold);
+}
+
+/* === ATTRACTIONS === */
+.attractions-section {
+  background: linear-gradient(180deg, var(--parchment) 0%, var(--cream) 100%);
+}
+
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.attraction-card {
+  position: relative;
+  padding: 2rem;
+  background: var(--cream);
+  border: 1px solid rgba(194,112,62,0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.attraction-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(58,51,48,0.08);
+}
+
+.attraction-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(194,112,62,0.1);
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  line-height: 1;
+}
+
+.attraction-category {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin-bottom: 0.5rem;
+}
+
+.attraction-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.6rem;
+}
+
+.attraction-desc {
+  font-size: 0.95rem;
+  color: rgba(58,51,48,0.7);
+  line-height: 1.6;
+}
+
+/* === PROGRAM / ITINERARY === */
+.program-section {
+  background: var(--cream);
+}
+
+.day-block {
+  margin-bottom: 3rem;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.day-block::before {
+  content: '';
+  position: absolute;
+  left: 0.65rem;
+  top: 2.5rem;
+  bottom: -1rem;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+}
+
+.day-block:last-child::before { display: none; }
+
+.day-dot {
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: var(--cream);
+}
+
+.day-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--terracotta);
+  border-radius: 50%;
+}
+
+.day-label {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 0.3rem;
+}
+
+.day-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.8rem;
+}
+
+.day-items {
+  list-style: none;
+  padding: 0;
+}
+
+.day-items li {
+  font-size: 1.05rem;
+  color: rgba(58,51,48,0.8);
+  line-height: 1.5;
+  padding: 0.4rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.day-items li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.6rem;
+  top: 0.7rem;
+}
+
+/* === AFFIRMATIONS === */
+.affirmations-section {
+  background:
+    linear-gradient(135deg, rgba(114,47,55,0.95) 0%, rgba(160,85,42,0.95) 50%, rgba(107,127,59,0.9) 100%);
+  color: var(--cream);
+  padding: 5rem 2rem;
+}
+
+.affirmations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 2.5rem auto 0;
+}
+
+.affirmation-card {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid rgba(253,245,230,0.15);
+  background: rgba(253,245,230,0.05);
+}
+
+.affirmation-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.affirmation-theme {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 0.8rem;
+}
+
+.affirmation-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--cream);
+}
+
+/* === FOOTER === */
+.footer {
+  background: var(--charcoal);
+  color: rgba(253,245,230,0.5);
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.footer-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+.footer-subtitle {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+
+.footer-heart {
+  font-size: 1.5rem;
+  color: var(--terracotta);
+  animation: heartbeat 2s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.1); }
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero { min-height: 90vh; padding: 3rem 1.5rem; }
+  .content-section { padding: 3rem 1.5rem; }
+  .travel-section { padding: 3rem 1.5rem; }
+  .affirmations-section { padding: 3rem 1.5rem; }
+  .names-list { gap: 0.8rem; }
+  .name-badge { font-size: 0.95rem; padding: 0.4rem 1rem; }
+  .corner-flourish { width: 60px; height: 60px; }
+  .day-block { padding-left: 2.5rem; }
+  .attraction-card { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .travel-grid { grid-template-columns: 1fr; }
+  .attractions-grid { grid-template-columns: 1fr; }
+  .affirmations-grid { grid-template-columns: 1fr; }
+  .palazzo-features { grid-template-columns: 1fr; }
+  .hero-date { padding: 0.6rem 1.5rem; font-size: 1.1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="corner-flourish tl">
+    <svg viewBox="0 0 100 100"><path d="M5,95 Q5,5 95,5 Q50,5 50,30 Q50,55 25,55 Q5,55 5,95Z" opacity="0.6"/><path d="M10,95 Q10,35 40,20 Q20,40 20,60 Q20,80 10,95Z" opacity="0.3"/></svg>
+  </div>
+  <div class="corner-flourish tr">
+    <svg viewBox="0 0 100 100"><path d="M5,95 Q5,5 95,5 Q50,5 50,30 Q50,55 25,55 Q5,55 5,95Z" opacity="0.6"/><path d="M10,95 Q10,35 40,20 Q20,40 20,60 Q20,80 10,95Z" opacity="0.3"/></svg>
+  </div>
+  <div class="corner-flourish bl">
+    <svg viewBox="0 0 100 100"><path d="M5,95 Q5,5 95,5 Q50,5 50,30 Q50,55 25,55 Q5,55 5,95Z" opacity="0.6"/><path d="M10,95 Q10,35 40,20 Q20,40 20,60 Q20,80 10,95Z" opacity="0.3"/></svg>
+  </div>
+  <div class="corner-flourish br">
+    <svg viewBox="0 0 100 100"><path d="M5,95 Q5,5 95,5 Q50,5 50,30 Q50,55 25,55 Q5,55 5,95Z" opacity="0.6"/><path d="M10,95 Q10,35 40,20 Q20,40 20,60 Q20,80 10,95Z" opacity="0.3"/></svg>
+  </div>
+
+  <div class="hero-ornament">✦ ✦ ✦ ✦ ✦</div>
+  <div class="hero-subtitle-top">Narozeninové překvapení</div>
+  <h1 class="hero-title">Víkend v&nbsp;<em>Calabrii</em></h1>
+  <div class="hero-location">Tropea · jižní Itálie</div>
+  <div class="hero-date">17. — 20. dubna 2026</div>
+  <p class="hero-affirmation">„Každá žena si zaslouží chvíle,<br>kdy čas plyne jen pro ni."</p>
+
+    <span></span>
+  </div>
+</section>
+
+<!-- ============ DIVIDER ============ -->
+<div class="section-divider">✦</div>
+
+<!-- ============ STORY ============ -->
+<section class="story-section">
+  <div class="content-section">
+    <div class="section-label reveal">Příběh tohoto výletu</div>
+    <h2 class="section-title reveal">Protože přátelství <em>je dar</em></h2>
+    <div class="story-text reveal">
+      <p>
+        Jsou chvíle, kdy je potřeba zastavit se. Nadechnout se vůně italského jara, 
+        zvednout sklenici studeného prosecca a říct si: 
+        <span class="highlight">„Tohle je náš čas."</span>
+      </p>
+      <p style="margin-top: 1.5rem;">
+        Čtyři dny v jižní Itálii. Městečko na útesu nad tyrkysovým mořem, 
+        starobylé uličky, autentická kuchyně a hlavně — společnost těch nejlepších přítelkyň. 
+        Žádné povinnosti, žádný spěch. Jen radost z&nbsp;přítomného okamžiku.
+      </p>
+    </div>
+
+    <div class="names-list reveal">
+      <span class="name-badge">Eva</span>
+      <span class="name-badge">Dominika</span>
+      <span class="name-badge">Zuzka</span>
+      <span class="name-badge">Jeanette</span>
+    </div>
+
+    <div class="story-text reveal" style="margin-top: 1rem;">
+      <p style="font-style: italic; color: var(--olive);">
+        Pět žen, jedno italské městečko na útesu nad mořem a víkend plný smíchu, 
+        vůní a nezapomenutelných společných zážitků.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">✦ ✦ ✦ ✦ ✦</div>
+
+<!-- ============ TRAVEL INFO ============ -->
+<section class="travel-section">
+  <div class="section-label reveal" style="color: var(--gold-light);">Cestovní informace</div>
+  <h2 class="section-title reveal" style="color: var(--cream);">Vše, co potřebujete <em style="color: var(--gold);">vědět</em></h2>
+
+  <div class="travel-grid">
+    <div class="travel-card reveal">
+      <span class="travel-card-icon">✈</span>
+      <div class="travel-card-label">Letecká společnost</div>
+      <div class="travel-card-value">Wizz Air</div>
+      <div class="travel-card-detail">Let do Lamezia Terme (SUF) · transfer do Tropey</div>
+    </div>
+    <div class="travel-card reveal">
+      <span class="travel-card-icon">🗓</span>
+      <div class="travel-card-label">Termín</div>
+      <div class="travel-card-value">17. – 20. 4. 2026</div>
+      <div class="travel-card-detail">Pátek – Pondělí · 4 dny / 3 noci</div>
+    </div>
+    <div class="travel-card reveal">
+      <span class="travel-card-icon">🏛</span>
+      <div class="travel-card-label">Ubytování</div>
+      <div class="travel-card-value">Hotel</div>
+      <div class="travel-card-detail">Luxusní hotel · s TOP hodnocením</div>
+    </div>
+    <div class="travel-card reveal">
+      <span class="travel-card-icon">📍</span>
+      <div class="travel-card-label">Destinace</div>
+      <div class="travel-card-value">Tropea</div>
+      <div class="travel-card-detail">Costa degli Dei · Kalábrie · jižní Itálie</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PALAZZO ============ -->
+<section class="palazzo-section">
+  <div class="content-section">
+    <div class="section-label reveal">Vaše ubytování</div>
+    <h2 class="section-title reveal">Luxusní hotel <em>pro relax</em></h2>
+    <div class="story-text reveal">
+      <p>
+        Hotel v historickém centru, který splní veškerá očekávání. 
+        v srdci starobylé Tropea. 
+        Restaurovaný s&nbsp;láskou k&nbsp;detailu, kde se potkává 
+        historie s&nbsp;moderním komfortem.
+      </p>
+    </div>
+
+    <div class="palazzo-features reveal">
+      <div class="palazzo-feature">
+        <div class="palazzo-feature-icon">🛁</div>
+        <div class="palazzo-feature-title">Relax</div>
+        <div class="palazzo-feature-text">Každý pokoj je nádherný</div>
+      </div>
+      <div class="palazzo-feature">
+        <div class="palazzo-feature-icon">🍽</div>
+        <div class="palazzo-feature-title">Restaurace</div>
+        <div class="palazzo-feature-text">Včetně gastronomické restaurace s michelin ambicemi</div>
+      </div>
+      <div class="palazzo-feature">
+        <div class="palazzo-feature-icon">🍸</div>
+        <div class="palazzo-feature-title">Italský bar</div>
+        <div class="palazzo-feature-text">Koktejly a prosecco v elegantním prostředí</div>
+      </div>
+      <div class="palazzo-feature">
+        <div class="palazzo-feature-icon">🌿</div>
+        <div class="palazzo-feature-title">Zahrada</div>
+        <div class="palazzo-feature-text">Klidná zahrada pro ranní kávu i večerní relax</div>
+      </div>
+    </div>
+
+    <div class="palazzo-quote reveal">
+      „Jeden z nejkrásnějších hotelů v Kalábrii, v samém centru historické Tropea. 
+      Nádherně zrenovovaný, s materiály nejvyšší kvality a přívětivým personálem."
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">✦</div>
+
+<!-- ============ ATTRACTIONS ============ -->
+<section class="attractions-section">
+  <div class="content-section">
+    <div class="section-label reveal">Co vidět a zažít</div>
+    <h2 class="section-title reveal">Krásy <em>Tropea</em></h2>
+
+    <div class="attractions-grid">
+      <div class="attraction-card reveal">
+        <span class="attraction-number">01</span>
+        <div class="attraction-category">Ikona</div>
+        <div class="attraction-title">Santa Maria dell'Isola</div>
+        <div class="attraction-desc">Benediktinský klášter na skalním ostrohu nad mořem — nejfotografovanější místo celé Kalábrie. Výstup po schodech odměněn dechberoucím výhledem.</div>
+      </div>
+      <div class="attraction-card reveal">
+        <span class="attraction-number">02</span>
+        <div class="attraction-category">Pláže</div>
+        <div class="attraction-title">Spiaggia di Tropea</div>
+        <div class="attraction-desc">Bílý písek, křišťálově průzračné tyrhénské moře a kulisa pastelových domků vyrůstajících z útesu. Jedna z nejkrásnějších pláží celé Itálie.</div>
+      </div>
+      <div class="attraction-card reveal">
+        <span class="attraction-number">03</span>
+        <div class="attraction-category">Historie</div>
+        <div class="attraction-title">Centro Storico</div>
+        <div class="attraction-desc">Starobylé uličky plné květinových balkónů, boutique obchůdků, kavárniček a trattorii ukrytých za kamennými zdmi. Piazza Ercole jako srdce města.</div>
+      </div>
+      <div class="attraction-card reveal">
+        <span class="attraction-number">04</span>
+        <div class="attraction-category">Gastronomie</div>
+        <div class="attraction-title">Cipolla Rossa di Tropea</div>
+        <div class="attraction-desc">Slavná sladká červená cibule z Tropey — najdete ji v marmeládě, na pizze, v salátech i jako suvenýr. A k tomu 'nduja, pálivá kalábrijská salámová pomazánka!</div>
+      </div>
+      <div class="attraction-card reveal">
+        <span class="attraction-number">05</span>
+        <div class="attraction-category">Dobrodružství</div>
+        <div class="attraction-title">Capo Vaticano & výlety lodí</div>
+        <div class="attraction-desc">Dramatické útesy, skryté zátoky přístupné jen z moře a šnorchlování v nejčistší vodě Středomoří. Výlet lodí podél Costa degli Dei.</div>
+      </div>
+      <div class="attraction-card reveal">
+        <span class="attraction-number">06</span>
+        <div class="attraction-category">Západ slunce</div>
+        <div class="attraction-title">Affaccio sul Mare</div>
+        <div class="attraction-desc">Vyhlídkové terasy nad útesem s výhledem na Tyrhénské moře a siluety Liparských ostrovů. Aperitivo při západu slunce — magie v každém okamžiku.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">✦ ✦ ✦ ✦ ✦</div>
+
+<!-- ============ PROGRAM ============ -->
+<section class="program-section">
+  <div class="content-section">
+    <div class="section-label reveal">Orientační program</div>
+    <h2 class="section-title reveal">Čtyři dny <em>dolce vita</em></h2>
+
+    <div class="day-block reveal">
+      <div class="day-dot"></div>
+      <div class="day-label">Pátek · 17. dubna</div>
+      <div class="day-title">Přílet & první prosecco</div>
+      <ul class="day-items">
+        <li>Přílet do Lamezia Terme (letiště SUF)</li>
+        <li>Transfer do Tropey (cca 1 hodina podél pobřeží)</li>
+        <li>Check-in v hotelu & první espresso</li>
+        <li>Večerní procházka po Centro Storico — uličky, vyhlídky, vůně</li>
+        <li>Večeře v lokální trattorie & přípitky proseccem</li>
+      </ul>
+    </div>
+
+    <div class="day-block reveal">
+      <div class="day-dot"></div>
+      <div class="day-label">Sobota · 18. dubna</div>
+      <div class="day-title">Moře, Santa Maria & chuťové zážitky</div>
+      <ul class="day-items">
+        <li>Snídaně — italské cappuccino & cornetti</li>
+        <li>Výstup k Santa Maria dell'Isola — výhledy na celé pobřeží</li>
+        <li>Procházka starým městem — Piazza Ercole, katedrála, obchůdky</li>
+        <li>Oběd s výhledem — čerstvé mořské plody & víno</li>
+        <li>Odpoledne na Spiaggia di Tropea — křišťálové moře & relax</li>
+        <li>Aperitivo při západu slunce nad útesy</li>
+      </ul>
+    </div>
+
+    <div class="day-block reveal">
+      <div class="day-dot"></div>
+      <div class="day-label">Neděle · 19. dubna</div>
+      <div class="day-title">Capo Vaticano, wellness & narozeninová oslava</div>
+      <ul class="day-items">
+        <li>Volné dopoledne — káva, pomalé ráno, procházka</li>
+        <li>Výlet lodí podél Costa degli Dei — Capo Vaticano & skryté zátoky</li>
+        <li>Oběd v přímořské restauraci — 'nduja, červená cibule, pasta</li>
+        <li>Odpolední wellness & odpočinek</li>
+        <li>Narozeninová večeře — prosecco, dort & smích!</li>
+      </ul>
+    </div>
+
+    <div class="day-block reveal">
+      <div class="day-dot"></div>
+      <div class="day-label">Pondělí · 20. dubna</div>
+      <div class="day-title">Arrivederci, Tropea</div>
+      <ul class="day-items">
+        <li>Poslední italská snídaně & espresso s výhledem</li>
+        <li>Nákupy suvenýrů — cibulová marmeláda, keramika, 'nduja</li>
+        <li>Transfer na letiště Lamezia Terme</li>
+        <li>Odlet domů — plné kufry vzpomínek a srdce plné radosti</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AFFIRMATIONS ============ -->
+<section class="affirmations-section">
+  <div class="section-label reveal" style="color: var(--gold-light);">Něco pro duši</div>
+  <h2 class="section-title reveal" style="color: var(--cream);">Slova, která <em style="color: var(--gold-light);">hřejí</em></h2>
+
+  <div class="affirmations-grid">
+    <div class="affirmation-card reveal">
+      <span class="affirmation-icon">☀️</span>
+      <div class="affirmation-theme">Itálie</div>
+      <div class="affirmation-text">Každý italský okamžik je malá oslava krásy života. Nechám se nést vůní citrónů, teplým větrem a pomalým rytmem jihu.</div>
+    </div>
+    <div class="affirmation-card reveal">
+      <span class="affirmation-icon">🤍</span>
+      <div class="affirmation-theme">Přátelství</div>
+      <div class="affirmation-text">Pravé přítelkyně jsou vzácný dar. Společný smích je nejkrásnější melodie, kterou si ze života odneseme.</div>
+    </div>
+    <div class="affirmation-card reveal">
+      <span class="affirmation-icon">🌊</span>
+      <div class="affirmation-theme">Relax</div>
+      <div class="affirmation-text">Zasloužím si odpočinek bez výčitek. Teplá voda, hluboký nádech a pocit, že právě teď je vše tak, jak má být.</div>
+    </div>
+    <div class="affirmation-card reveal">
+      <span class="affirmation-icon">🥂</span>
+      <div class="affirmation-theme">Oslava</div>
+      <div class="affirmation-text">Život stojí za oslavu. Každý rok je nová kapitola a já ji začínám s&nbsp;radostí, vděčností a sklenkou prosecca.</div>
+    </div>
+    <div class="affirmation-card reveal">
+      <span class="affirmation-icon">✨</span>
+      <div class="affirmation-theme">Přítomný okamžik</div>
+      <div class="affirmation-text">Neexistuje lepší místo než tady. Neexistuje lepší čas než teď. Nechávám starosti za sebou a otevírám se radosti.</div>
+    </div>
+    <div class="affirmation-card reveal">
+      <span class="affirmation-icon">🌸</span>
+      <div class="affirmation-theme">Sebeláska</div>
+      <div class="affirmation-text">Jsem silná, krásná a zasloužím si péči. Tento víkend je můj — věnuji ho sama sobě a ženám, které miluji.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-title">Všechno nejlepší k narozeninám!</div>
+  <div class="footer-subtitle">Calabria čeká. Kufr sbal, úsměv nasaď, prosecco je nachlazené.</div>
+  <div style="margin: 1.5rem 0; color: rgba(253,245,230,0.3); letter-spacing: 0.5em;">✦ ✦ ✦ ✦ ✦</div>
+  <div class="footer-heart">❤</div>
+  <div style="margin-top: 1.5rem; font-size: 0.85rem; color: rgba(253,245,230,0.3);">
+    Duben 2026
+  </div>
+</footer>
+
+<!-- ============ SCROLL REVEAL JS ============ -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const reveals = document.querySelectorAll('.reveal');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Stagger the animations slightly
+        const delay = Array.from(entry.target.parentElement.querySelectorAll('.reveal'))
+          .indexOf(entry.target) * 100;
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, Math.min(delay, 400));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  reveals.forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>
